@@ -1,5 +1,6 @@
 
-PA Trio is a class representing a data structure that holds a group of three items. A Trio object has the following characteristics:
+# Project A: Generics
+A Trio is a class representing a data structure that holds a group of three items. A Trio object has the following characteristics:
 
 * Trios hold three items of the **same type**.
   * For example, a Trio could hold three Integers or three Strings or three Students, etc. A Trio could **not**, however, hold two Integers and a String.
