@@ -1,5 +1,5 @@
 
-public class Person  {
+public class Person implements Comparable<Person> {
 
 	private String firstName, lastName;
 	private int id;
@@ -24,6 +24,21 @@ public class Person  {
 	public String toString() {
 		return firstName + " " + lastName + " (" + id + ")";
 	}
-	
+
+	@Override
+	public int compareTo(Person other){
+		int lastNameComparison = this.lastName.compareToIgnoreCase(other.lastName);
+		if (lastNameComparison == 0){
+			int firstNameComparison = this.firstName.compareToIgnoreCase(other.firstName);
+			if (firstNameComparison == 0) { // last and first names equal, compare by ID
+				return Integer.compare(this.id, other.id);
+			} else {
+				return firstNameComparison; // last name equal, different first names
+			}
+		} else {
+			return lastNameComparison;// different last names
+		}
+
+	}
 	
 }

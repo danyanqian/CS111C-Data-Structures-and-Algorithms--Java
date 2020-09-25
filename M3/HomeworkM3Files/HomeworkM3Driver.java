@@ -1,3 +1,4 @@
+import javax.xml.stream.events.StartDocument;
 import java.util.*;
 
 public class HomeworkM3Driver {
@@ -149,26 +150,76 @@ public class HomeworkM3Driver {
 	
 	public static boolean isSet(BagInterface<String> wordBag) {
 		// YOUR CODE HERE
-		return false;
+		// A set is an unordered collection of objects that does not allow duplicates.
+		BagInterface<String> tempBag = new ArrayBag<>();
+		boolean isASet = true;
+
+		while(!wordBag.isEmpty()) {
+			String word = wordBag.remove();
+			if(wordBag.contains(word)) {
+				isASet = false;
+			}
+			tempBag.add(word);
+		}
+
+		while(!tempBag.isEmpty()) {
+			wordBag.add(tempBag.remove());
+		}
+		return isASet;
 	}
 	
 	public static ListInterface<String> createListContainingChar(ListInterface<String> wordList, char key) {
 		// YOUR CODE HERE
-		return new AList<String>();
+		ListInterface<String> tempList = new AList<String>();
+		for (int i = 1; i<= wordList.getLength(); i++){
+			String word = wordList.getEntry(i);
+			int firstCharacterIndex = word.indexOf(key);
+			if (firstCharacterIndex != -1) {
+				tempList.add(word);
+			}
+		}
+		return tempList;
 	}
 	
 	public static int lastPosition(List<String> wordList, String targetWord) {
 		// YOUR CODE HERE
-		return 0;
+		for (int i = wordList.size() - 1; i >= 0; i--) {
+			if ( wordList.get(i).equals(targetWord)){
+				return i;
+			}
+		}
+		System.out.println("The target word is not in the list");
+		return -1;
 	}
 	
 	public static boolean equivalentLists(ListInterface<Integer> numberListInterface, List<Integer> numberList) {
 		// YOUR CODE HERE
-		return false;
+		if (numberListInterface.getLength() != numberList.size()) {
+			return false;
+		}
+		for (int i = 0; i < numberList.size(); i++){
+			if (numberListInterface.getEntry(i+1) != numberList.get(i)) {
+				return false;
+			}
+		}
+		return true;
 	}
 	
 	public static void prioritizeMaximumValue(List<Integer> numberList) {
-		// YOUR CODE HERE		
+		// YOUR CODE HERE
+		if (numberList.size() > 1){
+			// get the max value
+			int maximumValue = numberList.get(0);
+			for (int item : numberList) {
+				if (item > maximumValue) {
+					maximumValue = item;
+				}
+			}
+			// remove the max
+			numberList.remove(Integer.valueOf(maximumValue));
+			// add the max to the front
+			numberList.add(0,Integer.valueOf(maximumValue));
+		}
 	}
 	
 	
@@ -261,6 +312,8 @@ public class HomeworkM3Driver {
 
 		}
 	}
+
+
 
 	
 }

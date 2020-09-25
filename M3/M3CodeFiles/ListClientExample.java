@@ -55,12 +55,12 @@ public class ListClientExample {
 					lowestScorePosition = i;
 				}
 			}
-			
-
 			scoreList.remove(lowestScorePosition);
 		} else {
 			System.out.println("Cannot remove a score from an empty list.");
 		}
+
+
 	}
 	
 	public static void removeLowestScore(List<Integer> scoreList) {
