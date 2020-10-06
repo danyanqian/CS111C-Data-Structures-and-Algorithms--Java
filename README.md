@@ -9,3 +9,5 @@ Module 2: Generics
 Module 3: Interfaces
 
 Module 4: Array-Based Implementations
+
+Module 5: Linked Node Implementations
