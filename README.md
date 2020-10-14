@@ -2,8 +2,12 @@
 My personal repo to store projects &amp; lecture notes for CS 111C Data Structures and Algorithms
 
 ### Modules
-M1: Java Review
+Module 1: Java Review
 
-M2: Generics
+Module 2: Generics
 
-M3: Interfaces
+Module 3: Interfaces
+
+Module 4: Array-Based Implementations
+
+Module 5: Linked Node Implementations
